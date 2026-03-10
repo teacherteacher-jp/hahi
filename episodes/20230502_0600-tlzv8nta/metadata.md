@@ -1,0 +1,9 @@
+---
+title: "「子どもが学校へ行かない・・」さて、どうする？（行動分析編） #03"
+date: "2023-05-02 06:00 JST"
+duration: "00:13:38"
+listen: "https://listen.style/p/teacherteacher/tlzv8nta"
+---
+
+<p>今回は「子どもが不登校になったとき」のお話。</p><p>来週は別のアプローチをご紹介します。</p><p><br /></p><p>【お悩み】</p><p>息子がとうとう学校へ行かなくなってしまいました。どうすればよいでしょうか。（by 小学４年生の息子さんを持つお母さん）</p><p><br /></p><p>Teacher Teacherの<a href="https://teacherteacher.jp/" rel="ugc noopener noreferrer" target="_blank">⁠⁠⁠webサイトはこちら⁠⁠⁠</a></p><p>活動を応援してくれる<a href="https://teacherteacher.jp/application" rel="ugc noopener noreferrer" target="_blank">⁠⁠⁠月額スポンサー様⁠⁠⁠</a>を募集しています！</p><p><br /></p><p>【今回の内容】</p><p>「子どものやる気が出るまで待つ」は正義？ / 4日以上休んじゃいけないわけ / 心のケアよりも大事なもの</p><p><br /></p><p>【今回の参考研究・書籍はこちら】</p><p><a href="https://www.amazon.co.jp/%E3%83%A1%E3%83%AA%E3%83%83%E3%83%88%E3%81%AE%E6%B3%95%E5%89%87-%E8%A1%8C%E5%8B%95%E5%88%86%E6%9E%90%E5%AD%A6%E3%83%BB%E5%AE%9F%E8%B7%B5%E7%B7%A8-%E9%9B%86%E8%8B%B1%E7%A4%BE%E6%96%B0%E6%9B%B8-%E5%A5%A5%E7%94%B0-%E5%81%A5%E6%AC%A1/dp/4087206645" target="_blank" rel="ugc noopener noreferrer">奥田健次 『メリットの法則 行動分析学・実践編』</a></p><p><br /></p><p>【お便りはこちらから】</p><p><a href="https://forms.gle/Zy1Ecgsgb7nLAeMZ7" rel="ugc noopener noreferrer" target="_blank">⁠https://forms.gle/DG3hFTdqo4cWNaBb6⁠</a></p><p><br /></p><p>【番組概要】</p><p>世界を回る先生はるかと、ラジオ番組プロデューサーひとしが子育てについて納得するまで考える番組「Teacher Teacher」</p><p><br /></p><p>はるかの<a href="https://www.instagram.com/team_teacherteacher/" rel="ugc noopener noreferrer" target="_blank">⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠Instagram⁠⁠⁠⁠⁠⁠⁠⁠⁠⁠</a>に届いたお悩みをテーマに語り尽くします。</p><p><br /></p><p>Twitterで#ティーチャーティーチャーをつけて感想・コメントをお願いします！</p><p><a href="https://www.instagram.com/team_teacherteacher/" rel="ugc noopener noreferrer" target="_blank">⁠⁠⁠⁠⁠⁠⁠⁠⁠Instagram⁠⁠⁠⁠⁠⁠⁠⁠⁠</a>へのDMも大歓迎！</p><p><br /></p><p>💡毎週火曜日、朝6:00に配信！</p><p><br /></p>
+ <a href="https://listen.style/p/teacherteacher/tlzv8nta">LISTENで開く</a>
