@@ -1,6 +1,6 @@
 import unittest
 
-from validate_vtt import parse_timestamp, parse_vtt
+from validate_vtt import parse_timestamp, parse_vtt, validate
 
 
 RAW_VTT = """WEBVTT
@@ -57,6 +57,73 @@ class TestParseVtt(unittest.TestCase):
     def test_cue_block_without_timestamp_raises(self):
         with self.assertRaises(ValueError):
             parse_vtt("WEBVTT\n\nタイムスタンプのないブロック\n")
+
+
+ORIGINAL = """WEBVTT
+
+00:01.140 --> 00:06.940
+えーっと、聞こえてない?今。
+
+00:06.940 --> 00:07.940
+部屋の外。
+"""
+
+GOOD_EDIT = """WEBVTT
+
+00:00:01.140 --> 00:00:06.940
+<v はるか>聞こえてない？今。
+
+00:00:06.940 --> 00:00:07.940
+<v ひとし>部屋の外。
+"""
+
+SPEAKERS = ["はるか", "ひとし"]
+
+
+class TestValidate(unittest.TestCase):
+    def test_good_edit_passes(self):
+        self.assertEqual(validate(ORIGINAL, GOOD_EDIT, SPEAKERS), [])
+
+    def test_timestamp_change_detected(self):
+        bad = GOOD_EDIT.replace("00:00:06.940 --> 00:00:07.940",
+                                "00:00:06.940 --> 00:00:08.000")
+        issues = validate(ORIGINAL, bad, SPEAKERS)
+        self.assertTrue(any("タイムスタンプ" in i for i in issues))
+
+    def test_short_timestamp_format_detected(self):
+        bad = GOOD_EDIT.replace("00:00:01.140 --> 00:00:06.940",
+                                "00:01.140 --> 00:06.940")
+        issues = validate(ORIGINAL, bad, SPEAKERS)
+        self.assertTrue(any("HH:MM:SS.mmm" in i for i in issues))
+
+    def test_cue_count_mismatch_detected(self):
+        bad = GOOD_EDIT.rsplit("\n\n", 1)[0] + "\n"
+        issues = validate(ORIGINAL, bad, SPEAKERS)
+        self.assertTrue(any("cue数" in i for i in issues))
+
+    def test_unknown_speaker_detected(self):
+        bad = GOOD_EDIT.replace("<v ひとし>", "<v ヒトシ>")
+        issues = validate(ORIGINAL, bad, SPEAKERS)
+        self.assertTrue(any("allowlist" in i for i in issues))
+
+    def test_missing_speaker_tag_detected(self):
+        bad = GOOD_EDIT.replace("<v ひとし>", "")
+        issues = validate(ORIGINAL, bad, SPEAKERS)
+        self.assertTrue(any("話者タグ" in i for i in issues))
+
+    def test_excessive_change_detected(self):
+        bad = GOOD_EDIT.replace("聞こえてない？今。", "全然違う話をここに書く。")
+        issues = validate(ORIGINAL, bad, SPEAKERS)
+        self.assertTrue(any("変更量" in i for i in issues))
+
+    def test_empty_text_detected(self):
+        bad = GOOD_EDIT.replace("部屋の外。", "")
+        issues = validate(ORIGINAL, bad, SPEAKERS)
+        self.assertTrue(any("空" in i for i in issues))
+
+    def test_broken_edited_vtt_reported(self):
+        issues = validate(ORIGINAL, "こわれたファイル", SPEAKERS)
+        self.assertTrue(any("パース" in i for i in issues))
 
 
 if __name__ == "__main__":
