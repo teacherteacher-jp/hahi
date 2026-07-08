@@ -39,6 +39,8 @@ curl -sf "https://listen.style/p/teacherteacher/<エピソードID>/transcript.v
 **前提条件チェック**: `transcript.original.vtt` の先頭20行を見て `<v 話者名>` タグが
 あることを確認する。タグがなければ話者登録がまだなので、
 「LISTENエディタで話者登録 (5分作業) をしてから再実行してください」と伝えて中断する。
+あわせてタイムスタンプの表記も見る。`MM:SS.mmm` の短縮形なら、ステップ2で
+`HH:MM:SS.mmm` への正規化が必要になることを控えておく (中断はしない)。
 
 登場する話者名の一覧を控えておく (allowlistとして使う):
 
@@ -60,7 +62,7 @@ grep -o "<v [^>]*>" "episodes/<dir>/transcript.original.vtt" | sort | uniq -c
 1. `proofreading_guide.md` の全文
 2. `glossary.md` の全文
 3. 制約 (絶対に守らせる):
-   - タイムスタンプは1文字も変更しない (形式変換もしない。すでにHH:MM:SS.mmm形式のため)
+   - タイムスタンプの時刻は変えない。表記が `MM:SS.mmm` の短縮形なら `HH:MM:SS.mmm` に正規化する (時刻の値は不変)
    - cueの数・順序を変えない。結合も分割もしない
    - 話者タグは原則維持。文脈上明らかに誤っている場合のみ変更し、変更ログに記録
    - 音声イベントの補記はしない (音声を聞けないため)
@@ -150,6 +152,8 @@ python3 post_report.py "episodes/<dir>/report.md"
 環境変数 `HAHI_DISCORD_WEBHOOK_URL` (+ 任意で `HAHI_DISCORD_THREAD_ID`) が必要。
 未設定なら投稿をスキップし、レポート本文を提示して手動投稿できるようにする
 (致命的エラーにしない)。
+投稿が途中で失敗した場合はスレッドに一部だけ届いている可能性があるので、
+`report.md` を使って手動で投稿し直せると案内する。
 
 ## 8. 記録
 
